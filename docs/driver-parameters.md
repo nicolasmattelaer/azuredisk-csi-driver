@@ -57,7 +57,7 @@ writeAcceleratorEnabled | [Write Accelerator on Azure Disks](https://learn.micro
 perfProfile | [Block device performance tuning using perfProfiles](./perf-profiles.md) | `none`, `basic`, `advanced` | No | `none`
 networkAccessPolicy | NetworkAccessPolicy property to prevent anybody from generating the SAS URI for a disk or a snapshot | `AllowAll`, `DenyAll`, `AllowPrivate` | No | `AllowAll`
 publicNetworkAccess | Enabling or disabling public access to the underlying data of a disk on the internet, even when the NetworkAccessPolicy is set to `AllowAll` | `Enabled`, `Disabled` | No | `Enabled`
-diskAccessID | ARM id of the [DiskAccess](https://aka.ms/disksprivatelinksdoc) resource for using private endpoints on disks | | No  | ``
+diskAccessID | ARM id of the [DiskAccess](https://aka.ms/disksprivatelinksdoc) resource for using private endpoints on disks (requires networkAccessPolicy to be `AllowAll` or `AllowPrivate`) | | No  | ``
 enableBursting | [enable on-demand bursting](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-bursting) beyond the provisioned performance target of the disk. On-demand bursting can only be applied to Premium disk, disk size > 512GB, Ultra & shared disk is not supported. Bursting is disabled by default. | `true`, `false` | No | `false`
 enablePerformancePlus | [enabling performance plus](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-performance), this setting only applies to Premium SSD, Standard SSD and HDD with disk size > 512GB. | `true`, `false` | No | `false`
 attachDiskInitialDelay | setting a large number for the initial delay in milliseconds for batch disk attach/detach could reduce the number of operations and ARM throttling |  | No | `1000`
